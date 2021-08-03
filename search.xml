@@ -2,6 +2,25 @@
 <search> 
   
   
+    
+    <entry>
+      <title>内网防火墙交换机设置实验</title>
+      <link href="/2021/08/03/%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2021/08/03/%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="内网防火墙交换机设置实验"><a href="#内网防火墙交换机设置实验" class="headerlink" title="内网防火墙交换机设置实验"></a>内网防火墙交换机设置实验</h1><p>内网nat模拟外网环境</p><p>nat映射ip 192.168.20.155</p><h2 id="绿盟防火墙"><a href="#绿盟防火墙" class="headerlink" title="绿盟防火墙"></a>绿盟防火墙</h2><p>将自己的以太网网址修改为192.168.1.0/24<br>weboper<br>密码</p><p><a href="https://192.168.1.1/">https://192.168.1.1/</a><br><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/f8ed5a7a2fb04497bc5141d87af81462.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/712f7819e323409883f76525479fd954.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/697c73caf1e94fa68a4cf2c92f5f083e.png"></p><p>设置静态路由<br><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/14d0ae3a1a5b4d96ad3d3c191ef5255d.png"></p><h2 id="华为交换机H3Cws5800设置"><a href="#华为交换机H3Cws5800设置" class="headerlink" title="华为交换机H3Cws5800设置"></a>华为交换机H3Cws5800设置</h2><p>将自己的以太网网址修改为192.168.0.0/24</p><p>访问<br><a href="http://192.168.0.233/">http://192.168.0.233/</a></p><p>admin<br>admin</p><p>划分vlan100,10,20<br>分别对应ip192.168.100..2/24（连接防火墙接口）<br>10.10.10.1/24<br>10.10.20.1/24<br>默认网关为10.10.10.1和10.10.20.1</p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/b740106e4181402f9f3486ec4d5faed6.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/c19c3b453965486aa73827232d0eaf01.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/a3efd5649fba46179b6488262ee7464c.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/a962b43e3a694744889d713e368bdf98.png" alt="ddd3aa6a0ad5dc50b27ae7eb98e2e428.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/2371d1da87cd425cb7c449365ae0dc7e.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/30d8e32e5a5645e8a234e1cf04788e6c.png"></p><p><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/23c95a629576435ea06c0774f9c4401e.png"></p><p>静态路由设置<br><img src="%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/db513b4467b24fd99547fc6959768063.png"></p><p>命令配置步骤</p><p>创建VLAN 100，并将GigabitEthernet 1/0/1加入VLAN 100。</p><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">system</span>-view</span><br><span class="line"><span class="attribute">vlan</span> <span class="number">100</span></span><br><span class="line"><span class="attribute">port</span> gigabitethernet <span class="number">1</span>/<span class="number">0</span>/<span class="number">1</span></span><br><span class="line"><span class="attribute">quit</span>` </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>创建Vlan-interface 100，并配置其IP地址为192.168.1.1/24。</p><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">interface</span> Vlan-interface <span class="number">100</span></span><br><span class="line"><span class="attribute">ip</span> address <span class="number">192.168.100.2</span> <span class="number">24</span></span><br><span class="line"><span class="attribute">quit</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
