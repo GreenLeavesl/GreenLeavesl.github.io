@@ -1,20 +1,20 @@
 [
 	{
-	    "avatar": "https://img9.doubanio.com/view/photo/m/public/p2620456100.webp",
+	    "avatar": "https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/R-C.jpg",
 	    "name": "Blog",
 	    "introduction": "CSDN社区",
 	    "url": "https://blog.csdn.net/hahakenihaoa",
 	    "title": "CSDN"
 	}, 
 	{
-	    "avatar": "https://img9.doubanio.com/view/photo/m/public/p2620456030.webp",
+	    "avatar": "https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/OIP-C%20(1).jpg",
 	    "name": "github",
 	    "introduction": "github",
 	    "url": "https://github.com/GreenLeavesl",
 	    "title": "github"
 	}, 
 	{
-	    "avatar": "https://img9.doubanio.com/view/photo/m/public/p2620456010.webp",
+	    "avatar": "https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/OIP-C.jpg",
 	    "name": "Blog",
 	    "introduction": "leaves",
 	    "url": "https://greenleavesl.github.io",
