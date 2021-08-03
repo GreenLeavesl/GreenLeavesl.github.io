@@ -103,7 +103,7 @@ theme: matery
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: git@github.com:GreenLeavesl/Greenleavesl.github.io.git
+  repository: git@github.com:GreenLeavesl/GreenLeavesl.github.io.git
   branch: main
 
 feed:
