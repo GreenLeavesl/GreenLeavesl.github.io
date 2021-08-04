@@ -133,14 +133,14 @@ indexbtn:
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  github:  https://github.com/GreenLeavesl || github
+  github:  https://github.com/GreenLeavesl
   email: #1181062873@qq.com
   facebook: # https://www.facebook.com/xxx
   twitter: # https://twitter.com/xxx
   qq: #1181062873
   weibo: # https://weibo.com/xxx
   zhihu: # https://www.zhihu.com/xxx
-  csdn: https://blog.csdn.net/hahakenihaoa || csdn
+  csdn: https://blog.csdn.net/hahakenihaoa
   rss: true # true、false
 
 # Whether to activate the Post TOC, and Configure which title types are supported by TOC support.
