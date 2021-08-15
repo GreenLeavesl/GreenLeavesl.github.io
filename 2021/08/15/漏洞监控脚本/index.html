@@ -489,7 +489,7 @@
             <div id="articleContent">
                 <h1 id="漏洞监控脚本"><a href="#漏洞监控脚本" class="headerlink" title="漏洞监控脚本"></a>漏洞监控脚本</h1><h2 id="钉钉机器人"><a href="#钉钉机器人" class="headerlink" title="钉钉机器人"></a>钉钉机器人</h2><p>添加群助手</p>
 <p>安全设置我选择ip段</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/image-20210815184645961.png" alt="image-20210815184645961"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/image-20210815184645961.png"></p>
 <p><a target="_blank" rel="noopener" href="https://developers.dingtalk.com/document/robots/custom-robot-access/title-jfe-yo9-jl2">自定义机器人接入 - 钉钉开放平台 (dingtalk.com)</a></p>
 <p>阿里云漏洞链接</p>
 <p><a target="_blank" rel="noopener" href="https://help.aliyun.com/notice_list_page/9213612/2.html">阿里云帮助中心-阿里云，领先的云计算服务提供商 (aliyun.com)</a></p>
@@ -517,7 +517,7 @@
 
 
 
-<p><img src="https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/image-20210815185009083.png" alt="image-20210815185009083"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/image-20210815185009083.png"></p>
 <h2 id="利用docker"><a href="#利用docker" class="headerlink" title="利用docker"></a>利用docker</h2><p>由于环境有问题，就利用docker来定时执行</p>
 <figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">docker search python</span><br><span class="line"></span><br><span class="line">docker pull python:3.5</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">映射目录并进入docker</span></span><br><span class="line"></span><br><span class="line">docker run -it --name secalert -v /root/SecAlert:/root/SecAlert python:3.5 bash</span><br><span class="line"></span><br><span class="line">cd /root/SecAlert</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">在对应docker面板内，安装对应的python库</span></span><br><span class="line"></span><br><span class="line">pip3 install -i http://mirrors.aliyun.com/pypi/simple/  requests beautifulsoap4</span><br></pre></td></tr></tbody></table></figure>
 
