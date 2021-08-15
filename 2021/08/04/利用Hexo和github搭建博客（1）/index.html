@@ -1,0 +1,1703 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="利用Hexo和github搭建博客（1）, Linux，cybersecurity等">
+    <meta name="description" content="keep hungry,keep foolish">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>利用Hexo和github搭建博客（1） | Leaves的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Leaves的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Leaves的博客</div>
+        <div class="logo-desc">
+            
+            keep hungry,keep foolish
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/GreenLeavesl" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/GreenLeavesl" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">利用Hexo和github搭建博客（1）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                <span class="chip bg-color">博客</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                工具
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-08-04
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="利用Hexo和github搭建博客（1）"><a href="#利用Hexo和github搭建博客（1）" class="headerlink" title="利用Hexo和github搭建博客（1）"></a>利用Hexo和github搭建博客（1）</h1><p>利用git page搭建一个免费的博客</p>
+<h2 id="01环境准备"><a href="#01环境准备" class="headerlink" title="01环境准备"></a>01环境准备</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><blockquote>
+<p>1.安装git<br>官方地址：<a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a></p>
+</blockquote>
+<ol>
+<li><p>git官方地址，下载对应的安装包，进行安装（简单的点击下一步）。</p>
+</li>
+<li><p>安装好之后，鼠标右键可以看到：Git Bash Here，点击后打开了。</p>
+</li>
+<li><p>输入：git –version<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/ebaeb56472844b31b15de8347e5b238c.png"></p>
+</li>
+</ol>
+<p>出现这个说明git安装成功。</p>
+<blockquote>
+<ol start="2">
+<li>安装node.js<br>官方地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></li>
+</ol>
+</blockquote>
+<ol>
+<li><p>访问nodejs官方地址，下载对应的安装包，进行安装（简单的点击下一步）。</p>
+</li>
+<li><p>安装好之后，配置环境变量，并在终端里面输入：node -v<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/b77c9014e3e74c74b9f131c3179fd46f.png"></p>
+</li>
+</ol>
+<p>出现这个说明nodejs安装成功~</p>
+<blockquote>
+<p>3.安装Hexo<br>安装命令：npm install hexo -g<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/0e5d242438fb4ef08f95263d94294ed0.png"></p>
+</blockquote>
+<p>测试是否安装成功，命令：hexo -v</p>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/a4f69d1c7992418dad432f5f4f7ce085.png"></p>
+<blockquote>
+<p>4.安装hexo依赖<br>命令：npm install –save hexo-deployer-git</p>
+</blockquote>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>以ubuntu举例</p>
+<figure class="highlight routeros"><table><tbody><tr><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> update</span><br><span class="line">apt-<span class="builtin-name">get</span> install nodejs</span><br><span class="line">apt-<span class="builtin-name">get</span> install npm</span><br><span class="line">apt install curl git vim</span><br></pre></td></tr></tbody></table></figure>
+<p>如果报错,请更改软件源–清华大学开源软件源,并更新</p>
+<blockquote>
+<p>nodejs -v<br>npm -v</p>
+</blockquote>
+<figure class="highlight mipsasm"><table><tbody><tr><td class="code"><pre><span class="line">node.<span class="keyword">js版本过低就用nvm调整</span></span><br><span class="line"><span class="keyword"></span>nvm list</span><br><span class="line">nvm <span class="keyword">install </span>对应版本</span><br><span class="line">nvm ues 对应版本</span><br></pre></td></tr></tbody></table></figure>
+
+<p>hexo</p>
+<p>创建目录<br>mkdir hexo<br>切换目录<br>cd hexo<br>全局安装 Hexo，需要最高权限，记得输入root密码<br>sudo npm install -g hexo-cli<br>初始化 Hexo<br>hexo init</p>
+<p>npm install </p>
+<h2 id="02git配置SSH-key"><a href="#02git配置SSH-key" class="headerlink" title="02git配置SSH key"></a>02git配置SSH key</h2><p>SSH key 作用：<br>免密的将本地的源码和资源上传到github，无需要每次都输账号和密码。</p>
+<p>先看本地是否配置好SSH key（命令：cd ~/.ssh）</p>
+<p>因为ssh配置好之后是保存到 c:/用户/Administrator/.ssh</p>
+<p>github与gitee操作基本一致</p>
+<h3 id="1-配置ssh"><a href="#1-配置ssh" class="headerlink" title="1.配置ssh"></a>1.配置ssh</h3><blockquote>
+<p>先生成ssh key<br>ssh-keygen -t rsa -C “邮件地址”<br>备注：这里的邮件地址是github账号绑定的邮件地址</p>
+</blockquote>
+<p>输入生成命令：ssh-keygen -t rsa -C “邮件地址”后。连续回车三次即可<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/6e155e69cea746d6ad6b196970ce2338.png"><br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/c539bd8b404b430699d44adf66e51a69.png"><br>可以看到在用户文件夹下生成了一个ssh文件夹<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/3f0ab0a84e2f4f15851cd26f19040fff.png"></p>
+<p>接着打开github主页，点击个人设置，点击左侧的SSH and GPG keys，点击New SSH key<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/b346e220fdf24bc4b655343af2775c16.png"><br>将id_rsa.pub复制的内容粘贴到key中，title随便起一个就行。点击 Add SSH key</p>
+<blockquote>
+<p>测试是否成功：<br>ssh -T <a href="mailto:git@github.com">git@github.com</a></p>
+</blockquote>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/53de417e48954469bd5378c4189d8a00.png"></p>
+<p>配置账号和密码</p>
+<p>$ git config –global user.name “XXX” #你的github用户名<br>$ git config –global user.email “<a href="mailto:xxx@163.com">xxx@163.com</a>“ #填写你的github注册邮箱</p>
+<p>备注：用户名和邮箱记得改为 自己的</p>
+<h2 id="03-搭建个人博客"><a href="#03-搭建个人博客" class="headerlink" title="03 搭建个人博客"></a>03 搭建个人博客</h2><h3 id="1-新建博客"><a href="#1-新建博客" class="headerlink" title="1.新建博客"></a>1.新建博客</h3><p>开始之前先介绍一下heox的基本命令</p>
+<figure class="highlight axapta"><table><tbody><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">"postName"</span> <span class="meta">#新建文章</span></span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">"pageName"</span> <span class="meta">#新建页面</span></span><br><span class="line">hexo generate <span class="meta">#生成静态页面至public目录</span></span><br><span class="line">hexo <span class="keyword">server</span> <span class="meta">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy <span class="meta">#部署到GitHub</span></span><br><span class="line">hexo help  <span class="meta"># 查看帮助</span></span><br><span class="line">hexo version  <span class="meta">#查看Hexo的版本</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>对应的缩写，比如：<br>hexo n == hexo new<br>hexo g == hexo generate</p>
+</blockquote>
+<p>新建一个保存博客的存放目录，比如辰哥的是：D:\hexo</p>
+<blockquote>
+<p>进入到本地博客存放目录<br>初始化 个人博客<br>命令：hexo init<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/cf3b4a834bf048b9ab09871cce16cfc2.png"></p>
+</blockquote>
+<p>可以看到博客存放目录出现了如下内容：<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/e9d5d1e408d943e09534eded355791a6.png"></p>
+<blockquote>
+<p>生成静态网页<br>命令：hexo g<br>预览<br>命令：hexo s<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/ff17e7d58b024e5aaf30a2b7a01f2f0b.png"></p>
+</blockquote>
+<blockquote>
+<p>报错解决：</p>
+<p>问题：hexo g报错,line.mathALL is not funciton问题解决</p>
+<p>原因：nodejs版本低于12</p>
+<p>解决：两种方法</p>
+<p>方法1）请将nodejs升级到高于12.0.0的版本</p>
+<p>方法2）config.xml中的 highlight-&gt;enable的值从true更改为false，这样可以避免异常。</p>
+<p>在浏览器这访问：<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
+</blockquote>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/9d69d460235340579094830eb9532d3b.png"></p>
+<p>可以看到访问没问题。</p>
+<p>但这个只是在本地预览，接着将这个博客部署到github。</p>
+<h3 id="2-部署到github-gitee"><a href="#2-部署到github-gitee" class="headerlink" title="2.部署到github/gitee"></a>2.部署到github/gitee</h3><p>gitee可以参考github<br>新建一个github仓库<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/1572c65ef1e14377be54f7fedc0bf30e.png"></p>
+<p>备注：最好是github的用户名</p>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/79156ef09f934d2cb9204c8417ae4eb3.png"></p>
+<p>编辑_config.yml，_config.yml在博客存放目录下,实现github 与gitee同时推送</p>
+<p>补充：github现在默认分支名为main，如果为了后期gitee和github双同步，可以在repository的setting中branches进行修改分支名</p>
+<figure class="highlight dts"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"># Deployment</span></span><br><span class="line"><span class="meta">## Docs: https:<span class="comment">//hexo.io/docs/one-command-deployment</span></span></span><br><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repository:</span> </span><br><span class="line"><span class="symbol">    github:</span> git@github.com:username/username.github.io.git</span><br><span class="line"><span class="symbol">    gitee:</span> git@gitee.com:username/username.git</span><br><span class="line"><span class="symbol">  branch:</span> master</span><br></pre></td></tr></tbody></table></figure>
+<p>repository仓库地址改为自己的</p>
+<p>branch看自己的github仓库是master还是main，辰哥这里是main，所以就填写main</p>
+<blockquote>
+<p>发布到github</p>
+<p>命令：hexo d</p>
+</blockquote>
+<p>在浏览器访问<br><a href="https://greenleavesl.github.io/">https://greenleavesl.github.io/</a><br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/c9a156cee4074858951dbfe6050cfd8b.png"></p>
+<h2 id="04-利用hexo-theme-matery美化hexo"><a href="#04-利用hexo-theme-matery美化hexo" class="headerlink" title="04 利用hexo-theme-matery美化hexo"></a>04 利用hexo-theme-matery美化hexo</h2><p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/a16156549b564234baeb4b225c05b210.png"><br>下载 master 分支的最新稳定版的代码，解压缩后将 hexo-theme-matery 的文件夹重命名为matery，复制到Hexo 的 themes<br>可以在themes 文件夹下使用Git clone命令来下载：<br><code>git clone https://github.com/blinkfox/hexo-theme-matery.git</code></p>
+<p>一些不需要或想开启的功能都可以在matery主题下的_config.yml中操作将其功能模块开启（true）或关闭(false)</p>
+<h3 id="切换主题"><a href="#切换主题" class="headerlink" title="切换主题"></a>切换主题</h3><p>下载完后，将站点配置文件中的 theme 值修改为你下载主题的文件名<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/83ac89aa80594d22a135b3f37d2d5435.png"></p>
+<figure class="highlight clean"><table><tbody><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:<span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## Themes: https:<span class="comment">//hexo.io/themes/</span></span><br><span class="line">theme: matery</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一些其他在站点目录配置：</p>
+<p>language: zh-CN网站的语言设置</p>
+<p>url: 网站的网站（域名）</p>
+<p>per_page: 12建议修改为 6 的倍数，主题排版比较好</p>
+<h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><h4 id="1-标签页"><a href="#1-标签页" class="headerlink" title="1.标签页"></a>1.标签页</h4><p><code>hexo new page "tags"</code><br>编辑新建的/source/tags/index.md文件</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-02-23 19:37:07</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"tags"</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">"tags"</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="2、分类页"><a href="#2、分类页" class="headerlink" title="2、分类页"></a>2、分类页</h4><p><code>hexo new page "categories"</code></p>
+<p>编辑新建的/source/categories/index.md文件</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-02-23 19:37:07</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"categories"</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">"categories"</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="3、关于页面"><a href="#3、关于页面" class="headerlink" title="3、关于页面"></a>3、关于页面</h4><p><code>hexo new page "about"</code></p>
+<p>编辑新建的/source/about/index.md文件</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">about</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-02-23 19:37:07</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"about"</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">"about"</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="4、留言板"><a href="#4、留言板" class="headerlink" title="4、留言板"></a>4、留言板</h4><p>hexo new page “contact”<br>编辑新建的/source/contact/index.md文件</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">contact</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-02-23 19:37:07</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"contact"</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">"contact"</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="5、友情链接"><a href="#5、友情链接" class="headerlink" title="5、友情链接"></a>5、友情链接</h4><p><code>hexo new page "friends"</code><br>编辑新建的/source/friends/index.md文件</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">friends</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-02-23 19:37:07</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"friends"</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">"friends"</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后在博客 source 目录下新建 _data 目录，在 _data 目录中新建 friends.json 文件，文件内容如下所示：</p>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line">[</span><br><span class="line">	{</span><br><span class="line">	    <span class="attr">"avatar"</span>: <span class="string">"https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/R-C.jpg"</span>,</span><br><span class="line">	    <span class="attr">"name"</span>: <span class="string">"Blog"</span>,</span><br><span class="line">	    <span class="attr">"introduction"</span>: <span class="string">"CSDN社区"</span>,</span><br><span class="line">	    <span class="attr">"url"</span>: <span class="string">"https://blog.csdn.net/hahakenihaoa"</span>,</span><br><span class="line">	    <span class="attr">"title"</span>: <span class="string">"CSDN"</span></span><br><span class="line">	}, </span><br><span class="line">	{</span><br><span class="line">	    <span class="attr">"avatar"</span>: <span class="string">"https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/OIP-C%20(1).jpg"</span>,</span><br><span class="line">	    <span class="attr">"name"</span>: <span class="string">"github"</span>,</span><br><span class="line">	    <span class="attr">"introduction"</span>: <span class="string">"github"</span>,</span><br><span class="line">	    <span class="attr">"url"</span>: <span class="string">"https://github.com/GreenLeavesl"</span>,</span><br><span class="line">	    <span class="attr">"title"</span>: <span class="string">"github"</span></span><br><span class="line">	}, </span><br><span class="line">	{</span><br><span class="line">	    <span class="attr">"avatar"</span>: <span class="string">"https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/OIP-C.jpg"</span>,</span><br><span class="line">	    <span class="attr">"name"</span>: <span class="string">"gitee"</span>,</span><br><span class="line">	    <span class="attr">"introduction"</span>: <span class="string">"leaves"</span>,</span><br><span class="line">	    <span class="attr">"url"</span>: <span class="string">"https://gitee.com/GreenLeavesl"</span>,</span><br><span class="line">	    <span class="attr">"title"</span>: <span class="string">"gitee"</span></span><br><span class="line">	}</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="6、添加-404-页面"><a href="#6、添加-404-页面" class="headerlink" title="6、添加 404 页面"></a>6、添加 404 页面</h4><p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/02422f6527344918a08432a920659739.png"><br>首先再站点根目录下的 source 文件夹下新建 404.md 文件，里面内容如下：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-02-23 19:37:07</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"404"</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">"404"</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">"Oops～，我崩溃了！找不到你想要的页面了"</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>紧接着再新建主题文件夹的 layout 目录下新建 404.ejs 文件，添加内容如下：<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/46f0cc5c81fd4a07b974089abb5c66c3.png"></p>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="comment">/* don't remove. */</span></span></span><br><span class="line"><span class="css">    <span class="selector-class">.about-cover</span> {</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">90.2vh</span>;</span></span><br><span class="line"><span class="css">    }</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bg-cover pd-header about-cover"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col s10 offset-s1 m8 offset-m2 l8 offset-l2"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"brand"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title center-align"</span>&gt;</span></span><br><span class="line">                        404</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"description center-align"</span>&gt;</span></span><br><span class="line">                        &lt;%= page.description %&gt;</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;% if (theme.banner.enable) { %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 每天切换 banner 图.  Switch banner image every day.</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> bannerUrl = <span class="string">"&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for('/medias/banner/') %&gt;"</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getDay() + <span class="string">'.jpg'</span>;</span></span><br><span class="line"><span class="javascript">        $(<span class="string">'.bg-cover'</span>).css(<span class="string">'background-image'</span>, <span class="string">'url('</span> + bannerUrl + <span class="string">')'</span>);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&lt;% } else { %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        $(<span class="string">'.bg-cover'</span>).css(<span class="string">'background-image'</span>, <span class="string">'url(&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for('</span>/medias/banner/<span class="number">0.</span>jpg<span class="string">') %&gt;)'</span>);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&lt;% } %&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="7、添加自定义页面"><a href="#7、添加自定义页面" class="headerlink" title="7、添加自定义页面"></a>7、添加自定义页面</h4><p>首先在站点目录下的 source 文件夹下新建 aboutme 文件，文件名可自定义，然后编写一个 index.html 放入 aboutme 文件夹下，然后在主题配置文件下的导航配置信息添加下面的配置：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">About:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fas</span> <span class="string">fa-address-card</span></span><br><span class="line">    <span class="attr">children:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">关于我</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">/about</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fas</span> <span class="string">fa-user-circle</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Another</span>    <span class="comment">#这是新添加的，在原有配置基础上添加</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">/aboutme</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-user-secret</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后在站点配置文件下，找到 skip_render，在后面添加属性，如下：</p>
+<figure class="highlight haml"><table><tbody><tr><td class="code"><pre><span class="line"># 其意思为在对文件进行渲染时跳过aboutme文件下的所有文件</span><br><span class="line">skip_render: </span><br><span class="line">    -<span class="ruby"> aboutme/** </span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> aaa/**</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> bbb/**</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="配置菜单导航"><a href="#配置菜单导航" class="headerlink" title="配置菜单导航"></a>配置菜单导航</h3><p>图标 icon 可以在 <a target="_blank" rel="noopener" href="https://fontawesome.com/icons">Font Awesome</a> 中查找</p>
+<figure class="highlight dts"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"># main menu navigation url and icon</span></span><br><span class="line"><span class="meta"># 配置菜单导航的名称、路径和图标icon.</span></span><br><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  Index:</span></span><br><span class="line"><span class="symbol">    url:</span> /</span><br><span class="line"><span class="symbol">    icon:</span> fas fa-home</span><br><span class="line"><span class="symbol">  Tags:</span></span><br><span class="line"><span class="symbol">    url:</span> /tags</span><br><span class="line"><span class="symbol">    icon:</span> fas fa-tags</span><br><span class="line"><span class="symbol">  Categories:</span></span><br><span class="line"><span class="symbol">    url:</span> /categories</span><br><span class="line"><span class="symbol">    icon:</span> fas fa-bookmark</span><br><span class="line"><span class="symbol">  Archives:</span></span><br><span class="line"><span class="symbol">    url:</span> /archives</span><br><span class="line"><span class="symbol">    icon:</span> fas fa-archive</span><br><span class="line"><span class="symbol">  About:</span></span><br><span class="line"><span class="symbol">    url:</span> /about</span><br><span class="line"><span class="symbol">    icon:</span> fas fa-user-circle</span><br><span class="line"><span class="symbol">  Contact:</span></span><br><span class="line"><span class="symbol">    url:</span> /contact</span><br><span class="line"><span class="symbol">    icon:</span> fas fa-comments</span><br><span class="line"><span class="symbol">  Friends:</span></span><br><span class="line"><span class="symbol">    url:</span> /friends</span><br><span class="line"><span class="symbol">    icon:</span> fas fa-address-book</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加-emoji-表情支持"><a href="#添加-emoji-表情支持" class="headerlink" title="添加 emoji 表情支持"></a>添加 emoji 表情支持</h3><p>需要安装插件 hexo-filter-github-emojis<br><code>npm install hexo-filter-github-emojis --save</code><br>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">githubEmojis:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">className:</span> <span class="string">github-emoji</span></span><br><span class="line">  <span class="attr">inject:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">styles:</span></span><br><span class="line">  <span class="attr">customEmojis:</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p>原本的代码显示行号和内容分开了，不美观<br>代码美化需要安装hexo-prism-plugin 插件</p>
+<p><code>npm i -S hexo-prism-plugin</code><br>修改 Hexo 根目录下 _config.yml 文件中 highlight.enable 的值为 false，并新增 prism 插件相关的配置，主要配置如下：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">highlight:</span>			<span class="comment">#代码块的设置</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span>			<span class="comment">#开启代码块高亮</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span>		<span class="comment">#如果未指定语言，则启用自动检测</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">false</span>		<span class="comment">#显示行数</span></span><br><span class="line">  <span class="attr">tab_replace:</span> <span class="string">''</span>		<span class="comment">#用n个空格替换tabs；如果值为空，则不会替换tabs</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="string">ture</span></span><br><span class="line">  <span class="attr">hljs:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># 关闭原有的代码高亮，使用自己的</span></span><br><span class="line"><span class="attr">prism_plugin:</span></span><br><span class="line">  <span class="attr">mode:</span> <span class="string">'preprocess'</span>    <span class="comment"># realtime/preprocess</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">'tomorrow'</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">false</span>    <span class="comment"># default false</span></span><br><span class="line">  <span class="attr">custom_css:</span></span><br></pre></td></tr></tbody></table></figure>
+<p>|—|—|<br>|参数KEY    |可选值|<br>|mode    |realtime (Parse code on browser in real time)|<br>|preprocess |(Preprocess code in node)|<br>|theme    |default <br>coy<br>dark<br>funky<br>okaidia<br>solarizedlight<br>tomorrow<br>twilight<br>如果要更多的选择访问： <a target="_blank" rel="noopener" href="https://github.com/ele828/hexo-prism-plugin">hexo-prism-plugin</a>|<br>|line_number |true (Show line numbers)<br>false (Default, Hide line numbers)|<br>|no_assets    |true (Stop loading asset files)<br>false (Default, load script and stylesheets files)|</p>
+<p>注意：</p>
+<p>hexo花括号显示失败的话，需要将hexo版本降级，改成hexo4.2.0版本就好了</p>
+<p>卸载hexo5.0<br>npm uninstall hexo –save</p>
+<p>安装4.2.0版本</p>
+<p>npm install <a href="mailto:hexo@4.2.0">hexo@4.2.0</a> –save</p>
+<h3 id="主题的搜索功能"><a href="#主题的搜索功能" class="headerlink" title="主题的搜索功能"></a>主题的搜索功能</h3><p>需要安装hexo-generator-search插件</p>
+<p><code>npm install hexo-generator-search --save</code></p>
+<p>在Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
+<figure class="highlight crmsh"><table><tbody><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.<span class="keyword">xml</span></span><br><span class="line">  <span class="title">field</span>: post</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="文章字数统计插件"><a href="#文章字数统计插件" class="headerlink" title="文章字数统计插件"></a>文章字数统计插件</h3><p>需要安装 hexo-wordcount 插件</p>
+<p><code>npm i --save hexo-wordcount</code><br>主题下的 _config.yml 文件中，激活以下配置项即可：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">wordCount:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment"># 将这个值设置为 true 即可.</span></span><br><span class="line">  <span class="attr">postWordCount:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">min2read:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">totalCount:</span> <span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="添加-RSS-订阅支持"><a href="#添加-RSS-订阅支持" class="headerlink" title="添加 RSS 订阅支持"></a>添加 RSS 订阅支持</h3><p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/f7e065b7e89e40d48a54be222de843a5.png"><br>需要安装hexo-generator-feed插件</p>
+<p>npm install hexo-generator-feed –save<br>Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
+<figure class="highlight dts"><table><tbody><tr><td class="code"><pre><span class="line"><span class="symbol">feed:</span></span><br><span class="line"><span class="symbol">  type:</span> atom</span><br><span class="line"><span class="symbol">  path:</span> atom.xml</span><br><span class="line"><span class="symbol">  limit:</span> <span class="number">20</span></span><br><span class="line"><span class="symbol">  hub:</span></span><br><span class="line"><span class="symbol">  content:</span></span><br><span class="line"><span class="symbol">  content_limit:</span> <span class="number">140</span></span><br><span class="line"><span class="symbol">  content_limit_delim:</span> <span class="string">' '</span></span><br><span class="line"><span class="symbol">  order_by:</span> -date</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h3><p>页脚信息可能需要做定制化修改，而且它不便于做成配置信息，所以可能需要你自己去再修改和加工。修改的地方在主题文件的 /layout/_partial/footer.ejs 文件中，包括站点、使用的主题、访问量等。</p>
+<h3 id="修改社交链接"><a href="#修改社交链接" class="headerlink" title="修改社交链接"></a>修改社交链接</h3><p>在主题的 config.yml 文件中，默认支持 QQ、GitHub 和邮箱等的配置，你可以在主题文件的 /layout/_partial/social-link.ejs 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/13a9aa63998e4e669c80f659fda8a034.png"></p>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line">&lt;% if (theme.socialLink.github) { %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%= theme.socialLink.github %&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"访问我的GitHub"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-github"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">&lt;% } %&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="修改打赏的二维码图片"><a href="#修改打赏的二维码图片" class="headerlink" title="修改打赏的二维码图片"></a>修改打赏的二维码图片</h3><p>在主题文件的 source/medias/reward 文件中修改</p>
+<h3 id="配置音乐播放器"><a href="#配置音乐播放器" class="headerlink" title="配置音乐播放器"></a>配置音乐播放器</h3><p>支持接入第三方音乐，如 QQ 音乐，网易云音乐，酷狗音乐等等</p>
+<p>主题的 _config.yml 配置文件中激活 music 配置即可：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Whether to display the musics.</span></span><br><span class="line"><span class="comment"># 是否在首页显示音乐.</span></span><br><span class="line"><span class="attr">music:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">title:</span> <span class="comment">#非吸底模式有效</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">show:</span> <span class="string">咕咕星的歌单</span></span><br><span class="line">  <span class="attr">autoHide:</span> <span class="literal">true</span>    <span class="comment"># hide automaticaly</span></span><br><span class="line">  <span class="attr">server:</span> <span class="string">netease</span>   <span class="comment">#require	music platform: netease, tencent, kugou, xiami, baidu</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">playlist</span>    <span class="comment">#require song, playlist, album, search, artist</span></span><br><span class="line">  <span class="attr">id:</span> <span class="number">2888085740</span>     <span class="comment">#require	song id / playlist id / album id / search keyword</span></span><br><span class="line">  <span class="attr">fixed:</span> <span class="literal">false</span>       <span class="comment"># 开启吸底模式</span></span><br><span class="line">  <span class="attr">autoplay:</span> <span class="literal">false</span>   <span class="comment"># 是否自动播放</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">'#42b983'</span></span><br><span class="line">  <span class="attr">loop:</span> <span class="string">'all'</span>       <span class="comment"># 音频循环播放, 可选值: 'all', 'one', 'none'</span></span><br><span class="line">  <span class="attr">order:</span> <span class="string">'random'</span>   <span class="comment"># 音频循环顺序, 可选值: 'list', 'random'</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="string">'auto'</span>   <span class="comment"># 预加载，可选值: 'none', 'metadata', 'auto'</span></span><br><span class="line">  <span class="attr">volume:</span> <span class="number">0.7</span>       <span class="comment"># 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效</span></span><br><span class="line">  <span class="attr">listFolded:</span> <span class="literal">true</span>  <span class="comment"># 列表默认折叠</span></span><br><span class="line">  <span class="attr">hideLrc:</span> <span class="literal">true</span>     <span class="comment"># 隐藏歌词</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>server 可选 netease（网易云音乐），tencent（QQ 音乐），kugou（酷狗音乐），xiami（虾米音乐），</p>
+<p>baidu（百度音乐）。</p>
+<p>type 可选 song（歌曲），playlist（歌单），album（专辑），search（搜索关键字），artist（歌手）</p>
+<p>id 获取示例：浏览器打开网易云音乐，点击我喜欢的音乐歌单，地址栏有一串数字，playlist 的 id 即为这串数字。</p>
+</blockquote>
+<h3 id="文章-Front-matter-介绍"><a href="#文章-Front-matter-介绍" class="headerlink" title="文章 Front-matter 介绍"></a>文章 Front-matter 介绍</h3><table>
+<thead>
+<tr>
+<th>配置选项</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>Markdown 的文件标题</td>
+<td>文章标题，强烈建议填写此选项</td>
+</tr>
+<tr>
+<td>date</td>
+<td>文件创建时的日期时间</td>
+<td>发布时间，强烈建议填写此选项，且最好保证全局唯一</td>
+</tr>
+<tr>
+<td>author</td>
+<td>根 _config.yml 中的 author</td>
+<td>文章作者</td>
+</tr>
+<tr>
+<td>img</td>
+<td>featureImages 中的某个值</td>
+<td>文章特征图，推荐使用图床</td>
+</tr>
+<tr>
+<td>top</td>
+<td>true</td>
+<td>推荐文章（文章是否置顶），如果 top 值为 true，则会作为首页推荐文章</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>false</td>
+<td>v1.0.2 版本新增，表示该文章是否需要加入到首页轮播封面中</td>
+</tr>
+<tr>
+<td>coverImg</td>
+<td>无</td>
+<td>v1.0.2 版本新增，表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片</td>
+</tr>
+<tr>
+<td>password</td>
+<td>无</td>
+<td>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项</td>
+</tr>
+<tr>
+<td>toc</td>
+<td>true</td>
+<td>是否开启 TOC，可以针对某篇文章单独关闭 TOC 的功能。前提是在主题的 config.yml 中激活了 toc 选项</td>
+</tr>
+<tr>
+<td>mathjax</td>
+<td>false</td>
+<td>是否开启数学公式支持 ，本文章是否开启 mathjax，且需要在主题的 _config.yml 文件中也需要开启才行</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>无</td>
+<td>文章摘要，自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>无</td>
+<td>文章分类，本主题的分类表示宏观上大的分类，只建议一篇文章一个分类</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>无</td>
+<td>文章标签，一篇文章可以多个标签</td>
+</tr>
+<tr>
+<td>reprintPolicy</td>
+<td>cc_by</td>
+<td>文章转载规则， 可以是 cc_by, cc_by_nd, cc_by_sa, cc_by_nc, cc_by_nc_nd, cc_by_nc_sa, cc0, noreprint 或 pay 中的一个</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意:</p>
+<ol>
+<li> 如果 img 属性不填写的话，文章特色图会根据文章标题的 hashcode 的值取余，然后选取主题中对应的特色图片，从而达到让所有文章都的特色图各有特色。</li>
+<li> date 的值尽量保证每篇文章是唯一的，因为本主题中 Gitalk 和 Gitment 识别 id 是通过 date 的值来作为唯一标识的。</li>
+<li> 如果要对文章设置阅读验证密码的功能，不仅要在 Front-matter 中设置采用了 SHA256 加密的 password 的值，还需要在主题的 _config.yml 中激活了配置。有些在线的 SHA256 加密的地址，可供你使用：开源中国在线工具、chahuo、站长工具。</li>
+<li> 您可以在文章 md 文件的 front-matter 中指定 reprintPolicy 来给单个文章</li>
+</ol>
+</blockquote>
+<h3 id="自定制修改"><a href="#自定制修改" class="headerlink" title="自定制修改"></a>自定制修改</h3><h4 id="修改主题颜色"><a href="#修改主题颜色" class="headerlink" title="修改主题颜色"></a>修改主题颜色</h4><figure class="highlight awk"><table><tbody><tr><td class="code"><pre><span class="line">在主题文件的 <span class="regexp">/source/</span>css/matery.css 文件中修改</span><br><span class="line"><span class="regexp">/* 整体背景颜色，包括导航、移动端的导航、页尾、标签页等的背景颜色. */</span></span><br><span class="line">.bg-color {</span><br><span class="line">    background-image: linear-gradient(to right, <span class="comment">#2558FF 0%, #0f9d58 100%);</span></span><br><span class="line">}</span><br><span class="line"><span class="regexp">/*如果想去掉banner图的颜色渐变效果，请将以下的css属性注释掉或者删除掉即可*/</span></span><br><span class="line">@-webkit-keyframes rainbow {</span><br><span class="line">   <span class="regexp">/* 动态切换背景颜色. */</span></span><br><span class="line">}</span><br><span class="line">@keyframes rainbow {</span><br><span class="line">    <span class="regexp">/* 动态切换背景颜色. */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="修改-banner-图和文章特色图"><a href="#修改-banner-图和文章特色图" class="headerlink" title="修改 banner 图和文章特色图"></a>修改 banner 图和文章特色图</h4><p>在 /source/medias/banner 文件夹中更换你喜欢的 banner 图片，主题代码中是每天动态切换一张，只需 7 张即可。如果你会 JavaScript 代码，可以修改成你自己喜欢切换逻辑，如：随机切换等，banner 切换的代码位置在 /layout/_partial/bg-cover-content.ejs 文件的 代码中：</p>
+<figure class="highlight arcade"><table><tbody><tr><td class="code"><pre><span class="line">$(<span class="string">'.bg-cover'</span>).css(<span class="string">'background-image'</span>, <span class="string">'url(/medias/banner/'</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getDay() + <span class="string">'.jpg)'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>在 /source/medias/featureimages 文件夹中默认有 24 张特色图片，你可以再增加或者减少，并需要在 _config.yml 做同步修改。</p>
+<p>如果想改为每小时或者每分钟切换 banner 图的话，需要将 getDay() 改为 getHours() 或者 getMinutes() 即可。</p>
+<h4 id="修改网站相关信息"><a href="#修改网站相关信息" class="headerlink" title="修改网站相关信息"></a>修改网站相关信息</h4><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">#这是根目录下的配置文件信息</span></span><br><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">LeavesBlog</span>		<span class="comment">#网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">'上下而求索'</span> <span class="comment">#网站副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">'keep hungry,keep foolish'</span>	<span class="comment">#网站描述description 主要用于5E0，告诉搜索引擎一个关于您站点的简单描述</span></span><br><span class="line"><span class="attr">keywords:</span> [<span class="string">Linux，cybersecurity等</span>]		<span class="comment">#网站的关键词。使用半角逗号“，”分隔多个关键词</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">咕咕星</span>			<span class="comment">#您的名字</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span>			<span class="comment">#网站使用的语言。建议修改为zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span>			<span class="comment">#网站时区。Hexo默认使用您电脑的时区。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是主题配置文件的相关信息</span></span><br><span class="line"><span class="comment"># 配置网站favicon和网站LOGO</span></span><br><span class="line"><span class="comment"># 此处我用的CDN，也可以使用本地文件</span></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">https://cdn.jsdelivr.net/gh/guixinchn/image/blog/favicon.png</span></span><br><span class="line"><span class="attr">logo:</span> <span class="string">https://cdn.jsdelivr.net/gh/guixinchn/image/blog/logo.png</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站副标题，打字效果</span></span><br><span class="line"><span class="comment"># 如果有符号 ‘ ，请在 ’ 前面加上 \</span></span><br><span class="line"><span class="attr">subtitle:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">loop:</span> <span class="literal">true</span> <span class="comment"># 是否循环</span></span><br><span class="line">  <span class="attr">showCursor:</span> <span class="literal">true</span> <span class="comment"># 是否显示光标</span></span><br><span class="line">  <span class="attr">startDelay:</span> <span class="number">300</span> <span class="comment"># 开始延迟</span></span><br><span class="line">  <span class="attr">typeSpeed:</span> <span class="number">100</span> <span class="comment"># 打字速度</span></span><br><span class="line">  <span class="attr">backSpeed:</span> <span class="number">50</span> <span class="comment"># 删除速度</span></span><br><span class="line">  <span class="attr">sub1:</span> <span class="string">如果放弃太早，你永远都不知道自己会错过什么。</span></span><br><span class="line">  <span class="attr">sub2:</span> <span class="string">没有伞的孩子必须努力奔跑！</span></span><br><span class="line">  <span class="attr">sub3:</span> <span class="string">花开不是为了花落，而是为了开的更加灿烂。</span></span><br><span class="line">  <span class="attr">sub4:</span> <span class="string">没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。</span></span><br></pre></td></tr></tbody></table></figure>
+<p>注意：</p>
+<p>网站打字效果副标题默认有两个，即 sub1 和 sub2，如果想写多个，则需要修改两处地方，首先修改配置文件，如上面所示，在 sub1 和 sub2 后面继续添加即可，然后在去主题目录下的 layout 文件夹下的_partial 文件夹，修改 bg-cover-content.ejs 文件，大约在 12 行左右，如下面所示：</p>
+<figure class="highlight xl"><table><tbody><tr><td class="code"><pre><span class="line">&lt;div class=<span class="string">"description center-align"</span>&gt;</span><br><span class="line">                &lt;% <span class="keyword">if</span> (<span class="built_in">theme</span>.<span class="built_in">subtitle</span>.enable) { %&gt;</span><br><span class="line">                &lt;span id=<span class="string">"subtitle"</span>&gt;&lt;/span&gt;</span><br><span class="line">                &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/typed.js@2.0.11"</span>&gt;&lt;/script&gt;</span><br><span class="line">                &lt;script&gt;</span><br><span class="line">                    var typed = new Typed(<span class="string">"#subtitle"</span>, {</span><br><span class="line">                        strings: [<span class="string">'&lt;%= theme.subtitle.sub1 %&gt;'</span>,</span><br><span class="line">				 				  <span class="string">'&lt;%= theme.subtitle.sub2 %&gt;'</span>,</span><br><span class="line">								  <span class="string">'&lt;%= theme.subtitle.sub3 %&gt;'</span>,</span><br><span class="line">				 				  <span class="string">'&lt;%= theme.subtitle.sub4 %&gt;'</span>],</span><br><span class="line">                        startDelay: &lt;%= <span class="built_in">theme</span>.<span class="built_in">subtitle</span>.startDelay %&gt;,</span><br><span class="line">                        typeSpeed: &lt;%= <span class="built_in">theme</span>.<span class="built_in">subtitle</span>.typeSpeed %&gt;,</span><br><span class="line">                        <span class="keyword">loop</span>: &lt;%= <span class="built_in">theme</span>.<span class="built_in">subtitle</span>.<span class="keyword">loop</span> %&gt;,</span><br><span class="line">                        backSpeed: &lt;%= <span class="built_in">theme</span>.<span class="built_in">subtitle</span>.backSpeed %&gt;,</span><br><span class="line">                        showCursor: &lt;%= <span class="built_in">theme</span>.<span class="built_in">subtitle</span>.showCursor %&gt;</span><br><span class="line">                    });</span><br><span class="line">                &lt;/script&gt;</span><br><span class="line">                &lt;% } <span class="keyword">else</span> { %&gt;</span><br><span class="line">                    &lt;%= config.description %&gt;</span><br><span class="line">                &lt;% } %&gt;</span><br><span class="line">            &lt;/div&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="社交链接的修改"><a href="#社交链接的修改" class="headerlink" title="社交链接的修改"></a>社交链接的修改</h4><p>在主题的配置文件中修改</p>
+<figure class="highlight dts"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"># The configurations of the second line of home banner</span></span><br><span class="line"><span class="meta"># icon/button will not show up <span class="meta-keyword">if</span> you leave the corresponding socialLink empty</span></span><br><span class="line"><span class="meta"># 首页 banner 中的第二行个人信息配置，留空即不启用</span></span><br><span class="line"><span class="symbol">socialLink:</span></span><br><span class="line"><span class="symbol">  github:</span>  https:<span class="comment">//github.com/GreenLeavesl || github</span></span><br><span class="line"><span class="symbol">  email:</span> <span class="meta">#1181062873@qq.com</span></span><br><span class="line"><span class="symbol">  facebook:</span> <span class="meta"># https:<span class="comment">//www.facebook.com/xxx</span></span></span><br><span class="line"><span class="symbol">  twitter:</span> <span class="meta"># https:<span class="comment">//twitter.com/xxx</span></span></span><br><span class="line"><span class="symbol">  qq:</span> <span class="meta">#1181062873</span></span><br><span class="line"><span class="symbol">  weibo:</span> <span class="meta"># https:<span class="comment">//weibo.com/xxx</span></span></span><br><span class="line"><span class="symbol">  zhihu:</span> <span class="meta"># https:<span class="comment">//www.zhihu.com/xxx</span></span></span><br><span class="line"><span class="symbol">  csdn:</span> https:<span class="comment">//blog.csdn.net/hahakenihaoa || csdn</span></span><br><span class="line"><span class="symbol">  rss:</span> true <span class="meta"># true、false</span></span><br></pre></td></tr></tbody></table></figure>
+<p>其中的 weixin 我是用的图片链接，会跳转到一个新的标签页，之后还需要修改 ejs 文件，文件在主题目录下的 layout 文件夹下的_partial 文件夹，修改 social-link.ejs，添加相关的配置，比如：</p>
+<figure class="highlight erb"><table><tbody><tr><td class="code"><pre><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.github) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.github </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"访问我的GitHub"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-github"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.email) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:&lt;%=</span></span></span><span class="ruby"> theme.socialLink.email </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"邮件联系我"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fas fa-envelope-open"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.facebook) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.facebook </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的Facebook: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.facebook </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-facebook-f"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.twitter) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.twitter </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的Twitter: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.twitter </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-twitter"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.qq) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=&lt;%=</span></span></span><span class="ruby"> theme.socialLink.qq </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"QQ联系我: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.qq </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-qq"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.weibo) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.weibo </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的微博: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.weibo </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-weibo"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.zhihu) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.zhihu </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的知乎: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.zhihu </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-zhihu1"</span>&gt;</span>知<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.rss) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%-</span></span></span><span class="ruby"> url_for(<span class="string">'/atom.xml'</span>) </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"RSS 订阅"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fas fa-rss"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.jianshu) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.jianshu </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的简书: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.jianshu </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-jianshu"</span>&gt;</span>简<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.csdn) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.csdn </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的CSDN: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.csdn </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-csdn"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.juejin) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.juejin </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的掘金: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.juejin </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-juejin"</span>&gt;</span>掘<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.cnblogs) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.cnblogs </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"关注我的博客园: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.cnblogs </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-juejin"</span>&gt;</span>博<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> <span class="keyword">if</span> (theme.socialLink.weixin) { </span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.socialLink.weixin </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">class</span>=<span class="string">"tooltipped"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">data-tooltip</span>=<span class="string">"微信联系我: &lt;%=</span></span></span><span class="ruby"> theme.socialLink.weixin </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-position</span>=<span class="string">"top"</span> <span class="attr">data-delay</span>=<span class="string">"50"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fab fa-weixin"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">&lt;%</span><span class="ruby"> } </span><span class="xml">%&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="其他一些个性DIY"><a href="#其他一些个性DIY" class="headerlink" title="其他一些个性DIY"></a>其他一些个性DIY</h3><h4 id="动态标题"><a href="#动态标题" class="headerlink" title="动态标题"></a>动态标题</h4><p>实现方法，引入 js 文件，在主题文件下的 /source/js/ 下新建 FunnyTitle.js，增加以下代码</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> OriginTitle = <span class="built_in">document</span>.title;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'visibilitychange'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.hidden) {</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"https://cdn.jsdelivr.net/gh/guixinchn/image/blog/favicon.png"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'我相信你还会回来的！'</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> {</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"https://cdn.jsdelivr.net/gh/guixinchn/image/blog/favicon.png"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'哈哈，我就知道！'</span> + OriginTitle;</span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">            <span class="built_in">document</span>.title = OriginTitle;</span><br><span class="line">        }, <span class="number">2000</span>);</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在添加到 themes/matery/layout/layout.ejs 引入<br><code>&lt;script src="&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for('/js/FunnyTitle.js') %&gt;"&gt;&lt;/script&gt;</code></p>
+<h3 id="关于我页面添加个人简历"><a href="#关于我页面添加个人简历" class="headerlink" title="关于我页面添加个人简历"></a>关于我页面添加个人简历</h3><p>打开 theme/matery/layout/about.ejs 文件，大约在 13 行。有一个 <code>`</code> <code>`</code> 标签，找出其对应结尾的标签，大约在 61 行左右，然后在新增如下代码：</p>
+<figure class="highlight applescript"><table><tbody><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"card"</span>&gt;</span><br><span class="line">     &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"card-content"</span>&gt;</span><br><span class="line">         &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"card-content article-card-content"</span>&gt;</span><br><span class="line">             &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"title center-align"</span> data-aos=<span class="string">"zoom-in-up"</span>&gt;</span><br><span class="line">                 &lt;i <span class="built_in">class</span>=<span class="string">"fa fa-address-book"</span>&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;%- __('个人简历') %&gt;</span><br><span class="line">              &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">                 &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"articleContent"</span> data-aos=<span class="string">"fade-up"</span>&gt;</span><br><span class="line">                     &lt;%- page.content %&gt;</span><br><span class="line">                 &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">           &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">      &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加雪花飘落效果"><a href="#添加雪花飘落效果" class="headerlink" title="添加雪花飘落效果"></a>添加雪花飘落效果</h3><p>实现方法：在themes/matery/source/libs/others下新建文件snow.js，并插入如下代码:（我用样式二）</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/*样式一*/</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>{</span><br><span class="line">    $.fn.snow = <span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> $flake = $(<span class="string">'&lt;div id="snowbox" /&gt;'</span>).css({<span class="string">'position'</span>: <span class="string">'absolute'</span>,<span class="string">'z-index'</span>:<span class="string">'9999'</span>, <span class="string">'top'</span>: <span class="string">'-50px'</span>}).html(<span class="string">'&amp;#10052;'</span>),</span><br><span class="line">    documentHeight  = $(<span class="built_in">document</span>).height(),</span><br><span class="line">    documentWidth   = $(<span class="built_in">document</span>).width(),</span><br><span class="line">    defaults = {</span><br><span class="line">        <span class="attr">minSize</span>     : <span class="number">10</span>,</span><br><span class="line">        <span class="attr">maxSize</span>     : <span class="number">20</span>,</span><br><span class="line">        <span class="attr">newOn</span>       : <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">flakeColor</span>  : <span class="string">"#AFDAEF"</span> <span class="comment">/* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */</span></span><br><span class="line">    },</span><br><span class="line">    options = $.extend({}, defaults, options);</span><br><span class="line">    <span class="keyword">var</span> interval= <span class="built_in">setInterval</span>( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> startPositionLeft = <span class="built_in">Math</span>.random() * documentWidth - <span class="number">100</span>,</span><br><span class="line">    startOpacity = <span class="number">0.5</span> + <span class="built_in">Math</span>.random(),</span><br><span class="line">    sizeFlake = options.minSize + <span class="built_in">Math</span>.random() * options.maxSize,</span><br><span class="line">    endPositionTop = documentHeight - <span class="number">200</span>,</span><br><span class="line">    endPositionLeft = startPositionLeft - <span class="number">500</span> + <span class="built_in">Math</span>.random() * <span class="number">500</span>,</span><br><span class="line">    durationFall = documentHeight * <span class="number">10</span> + <span class="built_in">Math</span>.random() * <span class="number">5000</span>;</span><br><span class="line">    $flake.clone().appendTo(<span class="string">'body'</span>).css({</span><br><span class="line">        <span class="attr">left</span>: startPositionLeft,</span><br><span class="line">        <span class="attr">opacity</span>: startOpacity,</span><br><span class="line">        <span class="string">'font-size'</span>: sizeFlake,</span><br><span class="line">        <span class="attr">color</span>: options.flakeColor</span><br><span class="line">    }).animate({</span><br><span class="line">        <span class="attr">top</span>: endPositionTop,</span><br><span class="line">        <span class="attr">left</span>: endPositionLeft,</span><br><span class="line">        <span class="attr">opacity</span>: <span class="number">0.2</span></span><br><span class="line">    },durationFall,<span class="string">'linear'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        $(<span class="built_in">this</span>).remove()</span><br><span class="line">    });</span><br><span class="line">    }, options.newOn);</span><br><span class="line">    };</span><br><span class="line">})(jQuery);</span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    $.fn.snow({ </span><br><span class="line">        <span class="attr">minSize</span>: <span class="number">5</span>, <span class="comment">/* 定义雪花最小尺寸 */</span></span><br><span class="line">        <span class="attr">maxSize</span>: <span class="number">50</span>,<span class="comment">/* 定义雪花最大尺寸 */</span></span><br><span class="line">        <span class="attr">newOn</span>: <span class="number">300</span>  <span class="comment">/* 定义密集程度，数字越小越密集 */</span></span><br><span class="line">    });</span><br><span class="line">});</span><br><span class="line"><span class="comment">/*样式二*/</span></span><br><span class="line"><span class="comment">/* 控制下雪 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">snowFall</span>(<span class="params">snow</span>) </span>{</span><br><span class="line">    <span class="comment">/* 可配置属性 */</span></span><br><span class="line">    snow = snow || {};</span><br><span class="line">    <span class="built_in">this</span>.maxFlake = snow.maxFlake || <span class="number">200</span>;   <span class="comment">/* 最多片数 */</span></span><br><span class="line">    <span class="built_in">this</span>.flakeSize = snow.flakeSize || <span class="number">10</span>;  <span class="comment">/* 雪花形状 */</span></span><br><span class="line">    <span class="built_in">this</span>.fallSpeed = snow.fallSpeed || <span class="number">1</span>;   <span class="comment">/* 坠落速度 */</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">/* 兼容写法 */</span></span><br><span class="line">requestAnimationFrame = <span class="built_in">window</span>.requestAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.mozRequestAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.msRequestAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.oRequestAnimationFrame ||</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>{ <span class="built_in">setTimeout</span>(callback, <span class="number">1000</span> / <span class="number">60</span>); };</span><br><span class="line"></span><br><span class="line">cancelAnimationFrame = <span class="built_in">window</span>.cancelAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.mozCancelAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.webkitCancelAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.msCancelAnimationFrame ||</span><br><span class="line">    <span class="built_in">window</span>.oCancelAnimationFrame;</span><br><span class="line"><span class="comment">/* 开始下雪 */</span></span><br><span class="line">snowFall.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">/* 创建画布 */</span></span><br><span class="line">    snowCanvas.apply(<span class="built_in">this</span>);</span><br><span class="line">    <span class="comment">/* 创建雪花形状 */</span></span><br><span class="line">    createFlakes.apply(<span class="built_in">this</span>);</span><br><span class="line">    <span class="comment">/* 画雪 */</span></span><br><span class="line">    drawSnow.apply(<span class="built_in">this</span>)</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* 创建画布 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">snowCanvas</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">/* 添加Dom结点 */</span></span><br><span class="line">    <span class="keyword">var</span> snowcanvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);</span><br><span class="line">    snowcanvas.id = <span class="string">"snowfall"</span>;</span><br><span class="line">    snowcanvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">    snowcanvas.height = <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line">    snowcanvas.setAttribute(<span class="string">"style"</span>, <span class="string">"position:absolute; top: 0; left: 0; z-index: 1; pointer-events: none;"</span>);</span><br><span class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>].appendChild(snowcanvas);</span><br><span class="line">    <span class="built_in">this</span>.canvas = snowcanvas;</span><br><span class="line">    <span class="built_in">this</span>.ctx = snowcanvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    <span class="comment">/* 窗口大小改变的处理 */</span></span><br><span class="line">    <span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        snowcanvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">        <span class="comment">/* snowcanvas.height = window.innerHeight */</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* 雪运动对象 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flakeMove</span>(<span class="params">canvasWidth, canvasHeight, flakeSize, fallSpeed</span>) </span>{</span><br><span class="line">    <span class="built_in">this</span>.x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * canvasWidth);   <span class="comment">/* x坐标 */</span></span><br><span class="line">    <span class="built_in">this</span>.y = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * canvasHeight);  <span class="comment">/* y坐标 */</span></span><br><span class="line">    <span class="built_in">this</span>.size = <span class="built_in">Math</span>.random() * flakeSize + <span class="number">2</span>;          <span class="comment">/* 形状 */</span></span><br><span class="line">    <span class="built_in">this</span>.maxSize = flakeSize;                           <span class="comment">/* 最大形状 */</span></span><br><span class="line">    <span class="built_in">this</span>.speed = <span class="built_in">Math</span>.random() * <span class="number">1</span> + fallSpeed;         <span class="comment">/* 坠落速度 */</span></span><br><span class="line">    <span class="built_in">this</span>.fallSpeed = fallSpeed;                         <span class="comment">/* 坠落速度 */</span></span><br><span class="line">    <span class="built_in">this</span>.velY = <span class="built_in">this</span>.speed;                             <span class="comment">/* Y方向速度 */</span></span><br><span class="line">    <span class="built_in">this</span>.velX = <span class="number">0</span>;                                      <span class="comment">/* X方向速度 */</span></span><br><span class="line">    <span class="built_in">this</span>.stepSize = <span class="built_in">Math</span>.random() / <span class="number">30</span>;                 <span class="comment">/* 步长 */</span></span><br><span class="line">    <span class="built_in">this</span>.step = <span class="number">0</span>                                       <span class="comment">/* 步数 */</span></span><br><span class="line">}</span><br><span class="line">flakeMove.prototype.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> x = <span class="built_in">this</span>.x,</span><br><span class="line">        y = <span class="built_in">this</span>.y;</span><br><span class="line">    <span class="comment">/* 左右摆动(余弦) */</span></span><br><span class="line">    <span class="built_in">this</span>.velX *= <span class="number">0.98</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.velY &lt;= <span class="built_in">this</span>.speed) {</span><br><span class="line">        <span class="built_in">this</span>.velY = <span class="built_in">this</span>.speed</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">this</span>.velX += <span class="built_in">Math</span>.cos(<span class="built_in">this</span>.step += <span class="number">.05</span>) * <span class="built_in">this</span>.stepSize;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.y += <span class="built_in">this</span>.velY;</span><br><span class="line">    <span class="built_in">this</span>.x += <span class="built_in">this</span>.velX;</span><br><span class="line">    <span class="comment">/* 飞出边界的处理 */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.x &gt;= canvas.width || <span class="built_in">this</span>.x &lt;= <span class="number">0</span> || <span class="built_in">this</span>.y &gt;= canvas.height || <span class="built_in">this</span>.y &lt;= <span class="number">0</span>) {</span><br><span class="line">        <span class="built_in">this</span>.reset(canvas.width, canvas.height)</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="comment">/* 飞出边界-放置最顶端继续坠落 */</span></span><br><span class="line">flakeMove.prototype.reset = <span class="function"><span class="keyword">function</span>(<span class="params">width, height</span>) </span>{</span><br><span class="line">    <span class="built_in">this</span>.x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * width);</span><br><span class="line">    <span class="built_in">this</span>.y = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">this</span>.size = <span class="built_in">Math</span>.random() * <span class="built_in">this</span>.maxSize + <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">this</span>.speed = <span class="built_in">Math</span>.random() * <span class="number">1</span> + <span class="built_in">this</span>.fallSpeed;</span><br><span class="line">    <span class="built_in">this</span>.velY = <span class="built_in">this</span>.speed;</span><br><span class="line">    <span class="built_in">this</span>.velX = <span class="number">0</span>;</span><br><span class="line">};</span><br><span class="line"><span class="comment">// 渲染雪花-随机形状（此处可修改雪花颜色！！！）</span></span><br><span class="line">flakeMove.prototype.render = <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> snowFlake = ctx.createRadialGradient(<span class="built_in">this</span>.x, <span class="built_in">this</span>.y, <span class="number">0</span>, <span class="built_in">this</span>.x, <span class="built_in">this</span>.y, <span class="built_in">this</span>.size);</span><br><span class="line">    snowFlake.addColorStop(<span class="number">0</span>, <span class="string">"rgba(255, 255, 255, 0.9)"</span>);  <span class="comment">/* 此处是雪花颜色，默认是白色 */</span></span><br><span class="line">    snowFlake.addColorStop(<span class="number">.5</span>, <span class="string">"rgba(255, 255, 255, 0.5)"</span>); <span class="comment">/* 若要改为其他颜色，请自行查 */</span></span><br><span class="line">    snowFlake.addColorStop(<span class="number">1</span>, <span class="string">"rgba(255, 255, 255, 0)"</span>);    <span class="comment">/* 找16进制的RGB 颜色代码。 */</span></span><br><span class="line">    ctx.save();</span><br><span class="line">    ctx.fillStyle = snowFlake;</span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.arc(<span class="built_in">this</span>.x, <span class="built_in">this</span>.y, <span class="built_in">this</span>.size, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>);</span><br><span class="line">    ctx.fill();</span><br><span class="line">    ctx.restore();</span><br><span class="line">};</span><br><span class="line"><span class="comment">/* 创建雪花-定义形状 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFlakes</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> maxFlake = <span class="built_in">this</span>.maxFlake,</span><br><span class="line">        flakes = <span class="built_in">this</span>.flakes = [],</span><br><span class="line">        canvas = <span class="built_in">this</span>.canvas;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; maxFlake; i++) {</span><br><span class="line">        flakes.push(<span class="keyword">new</span> flakeMove(canvas.width, canvas.height, <span class="built_in">this</span>.flakeSize, <span class="built_in">this</span>.fallSpeed))</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* 画雪 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawSnow</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> maxFlake = <span class="built_in">this</span>.maxFlake,</span><br><span class="line">        flakes = <span class="built_in">this</span>.flakes;</span><br><span class="line">    ctx = <span class="built_in">this</span>.ctx, canvas = <span class="built_in">this</span>.canvas, that = <span class="built_in">this</span>;</span><br><span class="line">    <span class="comment">/* 清空雪花 */</span></span><br><span class="line">    ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> e = <span class="number">0</span>; e &lt; maxFlake; e++) {</span><br><span class="line">        flakes[e].update();</span><br><span class="line">        flakes[e].render(ctx);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/*  一帧一帧的画 */</span></span><br><span class="line">    <span class="built_in">this</span>.loop = requestAnimationFrame(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        drawSnow.apply(that);</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* 调用及控制方法 */</span></span><br><span class="line"><span class="keyword">var</span> snow = <span class="keyword">new</span> snowFall({<span class="attr">maxFlake</span>:<span class="number">60</span>});</span><br><span class="line">snow.start();</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后在themes/_config里libs.js.下面添加一行：</p>
+<p><code>snow: /libs/others/snow.js</code></p>
+<p>然后在 \themes\hexo-theme-hiero\layout\layout.ejs 文件里引用即可：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 雪花特效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"\js\snow.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后在themes/_config添加：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 雪花特效</span></span><br><span class="line"><span class="attr">snow:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/b7f849a0b12945a0b6f2c107da9a5ba8.png"></p>
+<h3 id="添加动漫人物挂件"><a href="#添加动漫人物挂件" class="headerlink" title="添加动漫人物挂件"></a>添加动漫人物挂件</h3><p>方法：</p>
+<ol>
+<li>获取模型：</li>
+</ol>
+<p>npm install –save hexo-helper-live2d<br>2. 安装喜欢的模型：</p>
+<p>npm install packagename<br>将packagename换成模型名字：</p>
+<p>npm install  live2d-widget-model-hibiki</p>
+<p>模型预览：<a href="https://link.zhihu.com/?target=https://github.com/xiazeyu/live2d-widget-models">live2d-widget-models</a> GitHub项目地址：<a href="https://link.zhihu.com/?target=https://github.com/EYHN/hexo-helper-live2d">hexo-helper-live2d</a></p>
+<ol start="3">
+<li>然后打开博客根目录下的 _config.yml文件，添加如下代码：</li>
+</ol>
+<p>方案一：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">      <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">      <span class="attr">model:</span></span><br><span class="line">        <span class="attr">use:</span> <span class="string">live2d-widget-model-hibiki</span> <span class="comment">#模型选择</span></span><br><span class="line">      <span class="attr">display:</span></span><br><span class="line">        <span class="attr">position:</span> <span class="string">right</span>  <span class="comment">#模型位置</span></span><br><span class="line">        <span class="attr">width:</span> <span class="number">150</span>   <span class="comment">#模型宽度</span></span><br><span class="line">        <span class="attr">height:</span> <span class="number">300</span>  <span class="comment">#模型高度</span></span><br><span class="line">      <span class="attr">mobile:</span></span><br><span class="line">        <span class="attr">show:</span> <span class="literal">false</span>  <span class="comment">#是否在手机端显示</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>方案二：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">debug:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-hibiki</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="浏览器网页标题"><a href="#浏览器网页标题" class="headerlink" title="浏览器网页标题"></a>浏览器网页标题</h3><ol>
+<li>在 \themes\matery\source\js 下新建一个 FunnyTitle.js 文件，填写如下代码：</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 浏览器搞笑标题</span></span><br><span class="line"><span class="keyword">var</span> OriginTitle = <span class="built_in">document</span>.title;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'visibilitychange'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.hidden) {</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"/funny.ico"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'╭(°A°`)╮ 页面崩溃啦 ~'</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> {</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"/favicon.ico"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'(ฅ&gt;ω&lt;*ฅ) 噫又好啦 ~'</span> + OriginTitle;</span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">            <span class="built_in">document</span>.title = OriginTitle;</span><br><span class="line">        }, <span class="number">2000</span>);</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>在 \themes\matery\layout\layout.ejs 文件中添加如下代码：</li>
+</ol>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--浏览器搞笑标题--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/FunnyTitle.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="添加动态线条"><a href="#添加动态线条" class="headerlink" title="添加动态线条"></a>添加动态线条</h3><blockquote>
+<p>会根据鼠标点击自动汇聚为一个圆</p>
+</blockquote>
+<p>使用方法在 ：/Hexo/themes/matery/layout/layout.ejs文件中body前添加如下代码：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--动态线条背景--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span></span></span><br><span class="line"><span class="tag"><span class="attr">color</span>=<span class="string">"220,220,220"</span> <span class="attr">opacity</span>=<span class="string">'0.7'</span> <span class="attr">zIndex</span>=<span class="string">"-2"</span> <span class="attr">count</span>=<span class="string">"200"</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>color：表示线条颜色，三个数字分别为(R,G,B)，默认：（0,0,0）</li>
+<li>opacity：表示线条透明度（0~1），默认：0.5</li>
+<li>count：表示线条的总数量，默认：150</li>
+<li>zIndex：表示背景的z-index属性，css属性用于控制所在层的位置，默认：-1</li>
+</ul>
+<h3 id="博客名称溢出"><a href="#博客名称溢出" class="headerlink" title="博客名称溢出"></a>博客名称溢出</h3><p>解决办法：在matery.css中添加以下代码。不懂css的注意位置(第六行后面)</p>
+   <figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line"><span class="selector-tag">header</span> <span class="selector-class">.brand-logo</span> <span class="selector-class">.logo-img</span>{</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="hexo博客出现无法加载“hexo-prism-plugin”"><a href="#hexo博客出现无法加载“hexo-prism-plugin”" class="headerlink" title="hexo博客出现无法加载“hexo-prism-plugin”"></a>hexo博客出现无法加载“hexo-prism-plugin”</h3><p>博客目录下的配置文件中打开，将以下代码放在最后即可</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">prism_plugin:</span></span><br><span class="line">  <span class="attr">mode:</span> <span class="string">'preprocess'</span> <span class="comment"># realtime/preprocess</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">'default'</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">false</span> <span class="comment"># default false</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="linux后台运行Hexo"><a href="#linux后台运行Hexo" class="headerlink" title="linux后台运行Hexo"></a>linux后台运行Hexo</h3><ol>
+<li>安装pm2</li>
+</ol>
+<p><code>npm install -g pm2</code></p>
+<ol start="2">
+<li>在博客根目录写一个名为hexo_run.js的脚本<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//run</span></span><br><span class="line"><span class="keyword">const</span> { exec } = <span class="built_in">require</span>(<span class="string">'child_process'</span>)</span><br><span class="line">exec(<span class="string">'hexo server'</span>,<span class="function">(<span class="params">error, stdout, stderr</span>) =&gt;</span> {</span><br><span class="line">        <span class="keyword">if</span>(error){</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'exec error: ${error}'</span>)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        }</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'stdout: ${stdout}'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'stderr: ${stderr}'</span>);</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure></li>
+<li>到博客根目录运行脚本<br><code>pm2 start hexo_run.js</code></li>
+</ol>
+<figure class="highlight livecodeserver"><table><tbody><tr><td class="code"><pre><span class="line">pm2的相关命令</span><br><span class="line">pm2 <span class="built_in">start</span> hexo_run.js	<span class="comment">#启动</span></span><br><span class="line">pm2 list	<span class="comment">#查看pm2管理的所有服务</span></span><br><span class="line"></span><br><span class="line">pm2 <span class="built_in">stop</span> all	<span class="comment">#停止pm2列表的所有服务</span></span><br><span class="line">pm2 <span class="built_in">stop</span> <span class="number">0</span> <span class="comment">#停止进程为0的进程</span></span><br><span class="line"></span><br><span class="line">pm2 reload all <span class="comment">#重新载入列表所有进程</span></span><br><span class="line">pm2 reload <span class="number">0</span> <span class="comment">#重载列表中进程为0的进程</span></span><br><span class="line"></span><br><span class="line">pm2 restart all	<span class="comment">#重启列表中所有的进程</span></span><br><span class="line">pm2 restart <span class="number">0</span>	<span class="comment">#重启列表中进程为0的进程</span></span><br><span class="line"></span><br><span class="line">pm2 <span class="built_in">delete</span> <span class="number">0</span>	<span class="comment">#删除列表中进程为0的进程</span></span><br><span class="line">pm2 <span class="built_in">delete</span> all	<span class="comment">#删除列表中所有的进程</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+<h2 id="05-利用git实现多地更新"><a href="#05-利用git实现多地更新" class="headerlink" title="05 利用git实现多地更新"></a>05 利用git实现多地更新</h2><ul>
+<li>利用github分支实现</li>
+<li>hexo生成的静态博客文件默认放在main(master)分支</li>
+<li>hexo的源文件（部署环境文件）可以都放在hexo分支上（可以新创建一个hexo分支），换新电脑时，直接git clone hexo分支</li>
+</ul>
+<h3 id="hexo搭建博客原理"><a href="#hexo搭建博客原理" class="headerlink" title="hexo搭建博客原理"></a>hexo搭建博客原理</h3><ul>
+<li>hexo帮助把博客发送到github，同时把md文件转换成网页文件</li>
+<li>hexo目录下的文件和github上的文件是不</li>
+</ul>
+<h3 id="搭建hexo服务器端电脑设置"><a href="#搭建hexo服务器端电脑设置" class="headerlink" title="搭建hexo服务器端电脑设置"></a>搭建hexo服务器端电脑设置</h3><ul>
+<li>在Github的username.github.io仓库上新建一个xxx分支，并切换到该分支，并在该仓库-&gt;Settings-&gt;Branches-&gt;Default branch中将默认分支设为xxx，save保存；然后将该仓库克隆到本地，进入该username.github.io文件目录<br><code>git clone -b hexo git@github.com:username/username.github.io.git</code><br>完成上面步骤后，在当前目录使用Git Bash执行git branch命令查看当前所在分支，应为新建的分支xxx：</li>
+</ul>
+<h3 id="拷贝部署文件"><a href="#拷贝部署文件" class="headerlink" title="拷贝部署文件"></a>拷贝部署文件</h3><ul>
+<li><p>如题，先将本地博客的部署文件（Hexo目录下的全部文件）全部拷贝进username.github.io文件目录中去。<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/fb41d46b89e744648d6a445d29ea0db6.png"><br>接下来，进入username.github.io文件目录下，将该目录下的全部文件提交到xxx分支，提交之前需注意：</p>
+</li>
+<li><p>将themes目录以内中的主题的.git目录删除（如果有），因为一个git仓库中不能包含另一个git仓库，提交主题文件夹会失败。<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/c97c4eeed4494601b674ee285a0a9ac5.png"></p>
+</li>
+<li><p>可能有人会问，删除了themes目录中的.git不就不能git pull更新主题了吗，很简单，需要更新主题时在另一个地方git clone下来该主题的最新版本，然后将内容拷到当前主题目录即可。</p>
+</li>
+</ul>
+<h3 id="提交hexo分支"><a href="#提交hexo分支" class="headerlink" title="提交hexo分支"></a>提交hexo分支</h3><ul>
+<li><p>执行git add .、git commit -m ‘back up hexo files’（引号内容可改）、git push即可将博客的hexo部署环境提交到GitHub个人仓库的xxx分支。</p>
+</li>
+<li><p>切换到username.github.io目录，执行npm install(由于仓库有一个.gitignore文件，里面默认是忽略掉 node_modules文件夹的，也就是说仓库的hexo分支并没有存储该目录[也不需要]，所以需要install下)</p>
+</li>
+</ul>
+<p>现在可以在GitHub上的username.github.io仓库看到两个分支的差异了。<br>master分支和xxx分支各自保存着一个版本，master分支用于保存博客静态资源，提供博客页面供人访问；xxx分支用于备份博客部署文件，供自己维护更新，两者在一个GitHub仓库内互不冲突。</p>
+<ul>
+<li>执行hexo d -g指令（在此之前，有时可能需要执行hexo clean），完成后就会发现，最新改动已经更新到main(master)分支了，两个分支互不干扰</li>
+<li>每次换电脑进行博客更新时，不管上次在其他电脑有没有更新，最好先git pull</li>
+<li>然后将目录切换下username.github.io下，此时需要安装一下npm install， 最后执行hexo g、hexo s、hexo d等命令即可提交成功</li>
+</ul>
+<h2 id="06发布和删除博客"><a href="#06发布和删除博客" class="headerlink" title="06发布和删除博客"></a>06发布和删除博客</h2><h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><h4 id="撰写文章"><a href="#撰写文章" class="headerlink" title="撰写文章"></a>撰写文章</h4><p>markdown编辑器（如：Typora、Vscode、Joplin、Vnote等）撰写博客</p>
+<h4 id="Hexo文章管理"><a href="#Hexo文章管理" class="headerlink" title="Hexo文章管理"></a>Hexo文章管理</h4><ol>
+<li>创建一个md文件<br>md文件也就是Markdown文件，通过以下命令来创建：</li>
+</ol>
+<figure class="highlight haxe"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="type"></span>&lt;title&gt;</span><br><span class="line">$ hexo <span class="keyword">new</span> <span class="type"></span>"我的第一篇文章<span class="string">"</span></span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>布局（layout）<br>创建md文件时，我们可以指定布局<figure class="highlight haxe"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="type"></span>[layout] &lt;title&gt;</span><br><span class="line">$ hexo <span class="keyword">new</span> <span class="type">page</span> <span class="string">"我的页面"</span></span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<p>布局有三种：post（文章）、draft（草稿）、page（页面）<br>在新建文件时，Hexo 会根据 scaffolds 文件夹内相对应的文件（可以理解为模板）来建立md文件：<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/377baa064a3f4ecb8c78605546763f9c.png"></p>
+<ul>
+<li>如果没有指定布局类型，则为默认布局post，可以在站点配置文件修改 default_layout 参数来修改默认布局。</li>
+<li>当我们创建不同布局的md文件时，它们会存储在不同路径：<br>post会在source下生成_post文件统一发布<br>draft会在source下生成_draft文件统一发布<br>page则是生成命名的文件并在里面生成一个index.md文件</li>
+</ul>
+<ol start="3">
+<li>草稿（draft）<br>draft这种布局在建立时会被保存到 source/_drafts 文件夹中，但不会显示在页面上，如果我们不想某一篇文章显示在页面上，那么就可以把它移动到_drafts文件夹中。</li>
+</ol>
+<p>我们可在启动服务器时加上 –draft 参数来查看草稿。<br><code>$ hexo server --draft</code></p>
+<ul>
+<li>还可以在站点配置文件中把 render_drafts 参数设为 true 来预览草稿。</li>
+<li>我们可以通过 publish 命令将草稿发布文章或者页面，它将会被移动到指定的文件夹。<br><code>$ hexo publish [layout] &lt;title&gt;</code></li>
+</ul>
+<ol start="4">
+<li>Front-matter<br>当我们创建一个md文件后，打开后会看到一些内容，这些称为Front-matter，它是文件最上方以 — 分隔的区域，用于指定个别文件的变量，举例来说：</li>
+</ol>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span> <span class="comment"># 标题就是我们上面创建的时候指定的名字</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span> <span class="comment"># 文件创建的时间</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在Typora中我们在md文件的首行（必须是第一行）输入— ，然后按回车就可以插入Front-matter了。</p>
+<p><strong>为文章添加分类与标签</strong><br>只有文章（post布局）支持分类和标签，需要在Front-matter中设置。分类有层级关系，标签没有。</p>
+<figure class="highlight subunit"><table><tbody><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- 个人博客（第一层级）</span><br><span class="line">- Hexo博客（第二层级）</span><br><span class="line"><span class="keyword">tags:</span></span><br><span class="line">- Hexo</span><br><span class="line">- 博客</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>为文章添加多个分类</strong></p>
+<figure class="highlight asciidoc"><table><tbody><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">- </span>[日常, 生活]</span><br><span class="line"><span class="bullet">- </span>[日常, 随想]</span><br><span class="line"><span class="bullet">- </span>[日记]</span><br></pre></td></tr></tbody></table></figure>
+<p>一般发布文章或者修改博客后需要这些操作：清除缓存&gt;生成静态文件&gt;启动服务器，测试没问题后再部署。</p>
+<figure class="highlight elixir"><table><tbody><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line"><span class="variable">$ </span>hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="本地图片部署和展示问题"><a href="#本地图片部署和展示问题" class="headerlink" title="本地图片部署和展示问题"></a>本地图片部署和展示问题</h3><ol>
+<li>安装插件<br>npm install <a target="_blank" rel="noopener" href="https://github.com/7ym0n/hexo-asset-image">https://github.com/7ym0n/hexo-asset-image</a> –save</li>
+</ol>
+<p>不要安装网上的npm install <a target="_blank" rel="noopener" href="https://github.com/CodeFalling/hexo-asset-image">https://github.com/CodeFalling/hexo-asset-image</a> –save</p>
+<ol start="2">
+<li>配置<br>在 _config.yml 配置文件中修改 post_asset_folder 属性为 true<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/7e8d8a68d44e471da24ed783ed49d470.png"></li>
+</ol>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/2f48ac461dca43afa689d28917122803.png"></p>
+<h4 id="图片引用"><a href="#图片引用" class="headerlink" title="图片引用"></a>图片引用</h4><p>文件目录如下</p>
+<figure class="highlight gherkin"><table><tbody><tr><td class="code"><pre><span class="line">|<span class="string">- _post  </span></span><br><span class="line"><span class="string"></span>|<span class="string">    </span>|<span class="string">- _resource</span></span><br><span class="line"><span class="string"></span>|<span class="string">    </span>|<span class="string">    </span>|<span class="string">- hexo.png</span></span><br><span class="line"><span class="string"></span>|<span class="string">    </span>|<span class="string">- article  </span></span><br><span class="line"><span class="string"></span>|<span class="string">    </span>|<span class="string">    </span>|<span class="string">- hexo.png  </span></span><br><span class="line"><span class="string"></span>|<span class="string">    </span>|<span class="string">- article.md</span></span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li>直接使用代码<code>![](hexo.png)</code>（虽然没有写文件夹的名字，但是可以的），hexo.png 是我们存在 article 文件夹内的图片。这时你会发现markdown预览中无法显示这张图片，但是当你将博客上传到网站时，网站上是可以正常显示的。</li>
+<li>使用代码 <img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/hexo.png">不仅可以本地预览，上传到网站也可以正常显示。</li>
+<li>本地无法预览也是件很不舒服的事情，其实我们还可以另外创建一个文件夹 pictures ，里面专门存放所有文章的图片，代码 <img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/hexo.png"> 不仅可以本地预览，上传到网站也可以正常显示。</li>
+</ol>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/f818a8e4e3444c57ab7fd17ec48f0915.png"></p>
+<h3 id="使用图床"><a href="#使用图床" class="headerlink" title="使用图床"></a>使用图床</h3><p>使用 GitHub + PicGo + jsDelivr 搭建自己的私人图床</p>
+<ul>
+<li>Snipaste： win下用了几年的开源截图软件，非常强大</li>
+<li>Typora：常用Markdown编辑器</li>
+<li>Picgo：多图床整合工具<h4 id="GitHub上创建一个存储库"><a href="#GitHub上创建一个存储库" class="headerlink" title="GitHub上创建一个存储库"></a>GitHub上创建一个存储库</h4>添加一个存储库（New repositories）命名为：leaves_img，用于上传图片文件。<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/cd7adac81b9645278b59bfb536caaa49.png"></li>
+</ul>
+<h4 id="使用PicGo客户端"><a href="#使用PicGo客户端" class="headerlink" title="使用PicGo客户端"></a>使用PicGo客户端</h4><ol>
+<li>准备工作<br>（1）images存储库分支选master<br>在images存储库点击Settings:</li>
+</ol>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/e125f7bc621945e9b3ddba414e4a7194.png"></p>
+<p>分支选master branch<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/e392fd1da47e4ecab25fd160d5b53a59.png"><br>2. 配置token key<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/ea1d105aeb2e413aa01f313522f348d5.png"></p>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/6f4f697727e74cdf834ba3e0741727f4.png"></p>
+<h4 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h4><p>下载 PicGo<br><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/picgo/releases">https://github.com/Molunerfinn/picgo/releases</a><br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/c18e412f9c204b4891bb7f394f107052.png"></p>
+<ul>
+<li>设定仓库名：按照【用户名 / 图床仓库名】的格式填写</li>
+<li>设定分支名：【 master 】</li>
+<li>设定 Token：粘贴上述生成的【 Token 】</li>
+<li>指定存储路径：填写想要储存的路径，如【 img/ 】，这样就会在仓库下创建一个名为 img 的文件夹，图片将会储存在此文件夹中</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照【 自定义域名 + 上传的图片名 】的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D">https://cdn.jsdelivr.net/gh/用户名/图床仓库名</a></li>
+</ul>
+<p>搭建完成上传</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/">https://cdn.jsdelivr.net/gh/</a>&lt;你的github用户名&gt;/&lt;你的图床仓库名&gt;@&lt;仓库版本号&gt;/图片的路径<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/4f152564eb404a2284e249c7c1cba615.png"><br><code>![](https://cdn.jsdelivr.net/gh/GreenLeavesl/leaves_img/img/R-C.jpg)</code></p>
+<h4 id="Typora配置图片自动上传"><a href="#Typora配置图片自动上传" class="headerlink" title="Typora配置图片自动上传"></a>Typora配置图片自动上传</h4><p>确保版本号在 0.9.84 之后</p>
+<p>选择图像。在上传服务，选择 PicGo(app)。PicGo路径，选择PicGo软件的安装路径。然后点击验证图片上传选项。上边的插入图片选择无特殊操作即可。<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/65ec0be5f12248ffa67b47a0962444b8.png"><br>验证成功之后是下图这个样子，屏幕右下角也会有浮窗提示。<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/b461cda97ac04cf5830c981e3a3c0726.png"><br>然后 PicGo 的相册中就多了两个此次测试的图片。</p>
+<p>测试配置是否成功</p>
+<p>上传成功后就是生成的图片连接<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/63b886c417584be993161a693178a15b.png"></p>
+<p>指定路径</p>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/eed030c9680648138432dc7adefd5472.png"></p>
+<h3 id="删除博客"><a href="#删除博客" class="headerlink" title="删除博客"></a>删除博客</h3><p>如果删除对应文章后，hexo clean &amp;&amp; hexo g &amp;&amp; hexo s和hexo d不起左右，则使用以下方法</p>
+<figure class="highlight jboss-cli"><table><tbody><tr><td class="code"><pre><span class="line">第一步，去文件夹source/_posts下删除你想要删除的文章</span><br><span class="line">第二步，删除<span class="string">.deploy_git</span>文件夹</span><br><span class="line"><span class="string">.deploy_git</span>是git部署用的文件。当你为 git 部署选项运行hexo d命令时，Hexo 会创建一个名为<span class="string">.deploy_git</span>的文件夹，并将生成的文件复制到该文件夹。</span><br><span class="line">第三步，执行hexo clean后，再执行hexo g，hexo g 即可。</span><br><span class="line">发现文章删除成功</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="排坑"><a href="#排坑" class="headerlink" title="排坑"></a>排坑</h2><ol>
+<li>新建默认博客_post报yaml格式错误</li>
+</ol>
+<p><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/f372c13b045b40b2a8a0b3c00457248d.png"><br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/a7c6dd53e47748479e4a405347dbe0c5.png"><br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/16794735a7a748da9de0d865e9488cb5.png"><br>删除后正常（如果标题中有空格，应用””号括起来，如hexo n “hello world”）<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/b7fbbfef0dbd478e8d879871573c1d34.png"></p>
+<ol start="2">
+<li>如果github项目私有无法部署gitpage，请改回公开</li>
+</ol>
+<p>在对应的repository的page设置为你hexo的_config.yml里设置的branch<br><img src="/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/6a48cfa8185a4dbeae0c323c9cacef18.png"></p>
+<p>补充：在_config中设置完全一致的repository的github/gitee项目名可以减少很多麻烦</p>
+<p><strong>参考文章：</strong><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/nightmare_dimple/article/details/86661514">https://blog.csdn.net/nightmare_dimple/article/details/86661514</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1046404">https://cloud.tencent.com/developer/article/1046404</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41684957/article/details/90680765">https://blog.csdn.net/qq_41684957/article/details/90680765</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34243930/article/details/109046120">https://blog.csdn.net/qq_34243930/article/details/109046120</a><br><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/alxd60g0/">https://post.smzdm.com/p/alxd60g0/</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">leaves</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://greenleavesl.github.io/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/">http://greenleavesl.github.io/2021/08/04/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%881%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">leaves</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                    <span class="chip bg-color">博客</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/08/09/%E5%88%A9%E7%94%A8Hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%882%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="利用Hexo和github搭建博客（2）">
+                        
+                        <span class="card-title">利用Hexo和github搭建博客（2）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/08/03/%E5%86%85%E7%BD%91%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="内网防火墙交换机设置实验">
+                        
+                        <span class="card-title">内网防火墙交换机设置实验</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/">
+                        <span class="chip bg-color">防火墙</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%A4%E6%8D%A2%E6%9C%BA/">
+                        <span class="chip bg-color">交换机</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="3537362132"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">leaves</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/GreenLeavesl" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+        
+    <!-- 雪花特效 --> 
+     
+    <script type="text/javascript" src="/libs/others/snow.js"></script> 
+    
+
+    <!--浏览器搞笑标题-->
+    <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+
+</html>
