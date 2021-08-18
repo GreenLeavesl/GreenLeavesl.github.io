@@ -513,7 +513,7 @@
 
 <p>计划任务No MTA installed, discarding output解决办法</p>
 <p>时任务尾部增加重定向输出到log的参数，例：</p>
-<figure class="highlight arcade"><table><tbody><tr><td class="code"><pre><span class="line">&gt;<span class="regexp">/dev/</span><span class="literal">null</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight applescript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="number">2</span>&gt;&gt;/root/SecAlert/<span class="keyword">error</span>.<span class="built_in">log</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -525,12 +525,12 @@
 
 <p>在宿主机写个脚本再用corntab定期执行</p>
 <p>shell脚本</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">docker exec -it b5b5f942d303 /bin/bash -c 'python3 /root/SecAlert/VulAlert.py'</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">docker exec -i b5b5f942d303 /bin/bash -c 'python3 /root/SecAlert/VulAlert.py'</span><br></pre></td></tr></tbody></table></figure>
 
-
-
+<p>不能加入-t参数，否则corntab执行shell命令报错，因为无法提供tty终端</p>
+<hr>
 <p>crontab计划任务</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">52 11 * * * sh /root/SecAlert/VulAlert.sh &gt;/dev/null 2&gt;&amp;1</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">52 11 * * * sh /root/SecAlert/VulAlert.sh &gt;/dev/null 2&gt;&gt;/root/SecAlert/error.log</span><br></pre></td></tr></tbody></table></figure>
 
 
 
