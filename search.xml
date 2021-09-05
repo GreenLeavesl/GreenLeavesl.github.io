@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>arm32远控</title>
+      <link href="/2021/09/05/arm32%E8%BF%9C%E6%8E%A7/"/>
+      <url>/2021/09/05/arm32%E8%BF%9C%E6%8E%A7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="arm32远控"><a href="#arm32远控" class="headerlink" title="arm32远控"></a>arm32远控</h1><p>注册：随意填写</p><p><a href="https://dashboard.cpolar.com/signup">cpolar - secure introspectable tunnels to localhost</a></p><h2 id="cpolar-搭建"><a href="#cpolar-搭建" class="headerlink" title="cpolar 搭建"></a>cpolar 搭建</h2><h4 id="1-cpolar-安装（国内使用）"><a href="#1-cpolar-安装（国内使用）" class="headerlink" title="1. cpolar 安装（国内使用）"></a>1. cpolar 安装（国内使用）</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | sudo bash</span><br></pre></td></tr></tbody></table></figure><p>或 cpolar短链接安装方式：(国外使用）</p><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">curl -sL https://git.io/cpolar | sudo bash</span><br></pre></td></tr></tbody></table></figure><h4 id="2-查看版本号，显示3-2-82"><a href="#2-查看版本号，显示3-2-82" class="headerlink" title="2. 查看版本号，显示3.2.82"></a>2. 查看版本号，显示3.2.82</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cpolar version</span><br></pre></td></tr></tbody></table></figure><h4 id="3-token认证"><a href="#3-token认证" class="headerlink" title="3. token认证"></a>3. token认证</h4><p>登录<a href="https://dashboard.cpolar.com/">后台</a>，查看自己的认证token，之后将token贴在命令行里</p><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cpolar authtoken xxxxxxx</span><br></pre></td></tr></tbody></table></figure><h4 id="4-简单穿透测试"><a href="#4-简单穿透测试" class="headerlink" title="4. 简单穿透测试"></a>4. 简单穿透测试</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cpolar http 8080</span><br></pre></td></tr></tbody></table></figure><p>按ctrl+c退出</p><h4 id="5-向系统添加服务"><a href="#5-向系统添加服务" class="headerlink" title="5. 向系统添加服务"></a>5. 向系统添加服务</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl enable cpolar</span><br></pre></td></tr></tbody></table></figure><h4 id="6-启动cpolar服务"><a href="#6-启动cpolar服务" class="headerlink" title="6. 启动cpolar服务"></a>6. 启动cpolar服务</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl start cpolar</span><br></pre></td></tr></tbody></table></figure><h4 id="7-查看服务状态"><a href="#7-查看服务状态" class="headerlink" title="7. 查看服务状态"></a>7. 查看服务状态</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl status cpolar</span><br></pre></td></tr></tbody></table></figure><h4 id="8-登录后台，查看隧道在线状态"><a href="#8-登录后台，查看隧道在线状态" class="headerlink" title="8. 登录后台，查看隧道在线状态"></a>8. 登录后台，查看隧道在线状态</h4><p><a href="https://dashboard.cpolar.com/status">https://dashboard.cpolar.com/status</a></p><h4 id="9-安装完成"><a href="#9-安装完成" class="headerlink" title="9. 安装完成"></a>9. 安装完成</h4><p>可以去<a href="https://cpolar.com/docs#expose-a-local-web-server-to-the-internet">入门指南</a>进一步了解cpolar的使用方法。</p><h4 id="注-cpolar-卸载方法"><a href="#注-cpolar-卸载方法" class="headerlink" title="注: cpolar 卸载方法"></a>注: cpolar 卸载方法</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | sudo bash -s -- --remove</span><br></pre></td></tr></tbody></table></figure><h3 id="安装说明："><a href="#安装说明：" class="headerlink" title="安装说明："></a>安装说明：</h3><ul><li>cpolar默认安装路径 /usr/local/bin/cpolar,</li><li>安装脚本会自动配置systemd服务脚本，启动以后，可以开机自启动。</li><li>如果第一次安装，会默认配置一个简单的样例配置文件，创建了两个样例隧道，一个web，一个ssh</li><li>cpolar配置文件路径: /usr/local/etc/cpolar/cpolar.yml</li></ul><h2 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h2><h4 id="ssh公网远程访问"><a href="#ssh公网远程访问" class="headerlink" title="ssh公网远程访问"></a>ssh公网远程访问</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">ssh 用户名@1.tcp.vip.cpolar.cn -p 20013</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Liunx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>漏洞监控脚本</title>
       <link href="/2021/08/15/%E6%BC%8F%E6%B4%9E%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC/"/>
       <url>/2021/08/15/%E6%BC%8F%E6%B4%9E%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC/</url>
