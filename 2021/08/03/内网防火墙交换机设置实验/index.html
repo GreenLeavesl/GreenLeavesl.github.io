@@ -506,7 +506,7 @@
 <p>创建VLAN 100，并将GigabitEthernet 1/0/1加入VLAN 100。</p>
 <figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">system</span>-view</span><br><span class="line"><span class="attribute">vlan</span> <span class="number">100</span></span><br><span class="line"><span class="attribute">port</span> gigabitethernet <span class="number">1</span>/<span class="number">0</span>/<span class="number">1</span></span><br><span class="line"><span class="attribute">quit</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p>创建Vlan-interface 100，并配置其IP地址为192.168.1.1/24。</p>
+<p>创建Vlan-interface 100，并配置其IP地址为192.168.100.2/24。</p>
 <figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">interface</span> Vlan-interface <span class="number">100</span></span><br><span class="line"><span class="attribute">ip</span> address <span class="number">192.168.100.2</span> <span class="number">24</span></span><br><span class="line"><span class="attribute">quit</span> </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
                 
