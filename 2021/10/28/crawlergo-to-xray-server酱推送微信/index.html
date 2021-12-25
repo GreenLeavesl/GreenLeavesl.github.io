@@ -504,10 +504,10 @@
 </li>
 </ul>
 <h2 id="配置server"><a href="#配置server" class="headerlink" title="配置server"></a>配置server</h2><ol>
-<li><p>扫码关注同时即可完成绑定<br><a target="_blank" rel="noopener" href="https://sct.ftqq.com/">https://sct.ftqq.com/</a><br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1%5C8b561a65bcad45059d8871fcb47e9240.png"></p>
+<li><p>扫码关注同时即可完成绑定<br><a target="_blank" rel="noopener" href="https://sct.ftqq.com/">https://sct.ftqq.com/</a><br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/8b561a65bcad45059d8871fcb47e9240.png"></p>
 </li>
 <li><p>给webhook.py配置api</p>
-<p><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1%5C5249bc2bfc6a4218bd4b77f7fe692f81.png"><br>替换相应的参数<br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1%5Cc6c22de5a49b4375859b4c7ecba27220.png"></p>
+<p><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/5249bc2bfc6a4218bd4b77f7fe692f81.png"><br>替换相应的参数<br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/c6c22de5a49b4375859b4c7ecba27220.png"></p>
 </li>
 <li><p>运行<br>python3 webhook.py<br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/81933f2391394fd69ba99738ba50ff40.png"></p>
 </li>
@@ -548,7 +548,7 @@
 
 <p><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/b2d46c43ae85405abaedad17deae0748.png"></p>
 <ol start="2">
-<li>运行<br><code>chmod +x  crawlergo</code><br>写入自己要扫的域名<br><code>vi targets.txt</code><br>运行<br><code>python3 crawlergo.py</code><br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/Piggo\img\8b561a65bcad45059d8871fcb47e9240-1635437057281.png"></li>
+<li>运行<br><code>chmod +x  crawlergo</code><br>写入自己要扫的域名<br><code>vi targets.txt</code><br>运行<br><code>python3 crawlergo.py</code><br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/8b561a65bcad45059d8871fcb47e9240.png"></li>
 </ol>
 <h2 id="微信端查看到漏洞情况"><a href="#微信端查看到漏洞情况" class="headerlink" title="微信端查看到漏洞情况"></a>微信端查看到漏洞情况</h2><p><strong>免费用户每天只有五次免费</strong><br><img src="/2021/10/28/crawlergo-to-xray-server%E9%85%B1%E6%8E%A8%E9%80%81%E5%BE%AE%E4%BF%A1/152157b878c045338b3ff6ea5ada8815.png"></p>
 <p><strong>可以用nohup命令后台运行并日志保存</strong><br>nohup python3 webhook.py &gt; webhook.log 2&gt;&amp;1 &amp;<br> nohup python3 crawlergo.py &gt; crawlergo.log 2&gt;&amp;1 &amp;<br> nohup ./xray_linux_amd64 webscan –listen  127.0.0.1:7777 –webhook-output  <a target="_blank" rel="noopener" href="http://127.0.0.1:5000/webhook">http://127.0.0.1:5000/webhook</a>    –html-output xray.html &gt; xray.log 2&gt;&amp;1 &amp;</p>
